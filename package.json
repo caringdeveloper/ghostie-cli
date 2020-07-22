@@ -6,12 +6,21 @@
   "bin": {
     "ghostie-cli": "./src/index.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [
+    "Cyberghost",
+    "Cyberghostvpn",
+    "VPN",
+    "CLI",
+    "Ghostie",
+    "Ghostie-CLI"
+  ],
+  "author": "Erek Röös <erek.roeoes@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/caringdeveloper/ghostie-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caringdeveloper/ghostie-cli.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "commander": "^6.0.0",
     "fs-extra": "^9.0.1",

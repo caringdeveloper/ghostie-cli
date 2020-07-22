@@ -49,6 +49,13 @@ ghostie-cli -g -c US -i Washington -x
 ghostie-cli -g -f 0
 ```
 
+### Disconnect
+
+```bash
+# Known issue (at least on my machine) - Does not reconnect ipv6 afterwards
+ghostie-cli -d
+```
+
 ## Contributing
 
 PRs are appreciated because there is always room to improve and things to learn :blush:

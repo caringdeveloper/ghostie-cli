@@ -5,7 +5,7 @@ const path = require("path");
 const prompt = require("prompt-sync")();
 
 module.exports = async (index) => {
-  const favs = await fs.readJson(path.join(process.cwd(), "favs.json"));
+  const favs = await fs.readJson(path.join(os.homedir(), ".favs.json"));
   const fav = favs[index];
 
   if (!fav) return "ERROR! Bad index";

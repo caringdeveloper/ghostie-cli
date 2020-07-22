@@ -4,6 +4,7 @@ const exec = promisify(require("child_process").exec);
 const prompt = require("prompt-sync")();
 const fs = require("fs-extra");
 const path = require("path");
+const os = require("os");
 
 module.exports = async (options) => {
   const mask = generateMask(options);
@@ -17,7 +18,7 @@ module.exports = async (options) => {
       );
 
       if (options.save) {
-        let favs = fs.readJsonSync(path.join(process.cwd(), "favs.json"), {
+        let favs = fs.readJsonSync(path.join(os.homedir(), ".favs.json"), {
           throws: false,
         });
 
@@ -28,7 +29,7 @@ module.exports = async (options) => {
         favs.push(
           `sudo -S cyberghostvpn --traffic --country-code ${options.country} --connect`
         );
-        fs.writeJsonSync(path.join(process.cwd(), "favs.json"), favs);
+        fs.writeJsonSync(path.join(os.homedir(), ".favs.json"), favs);
       }
 
       return stdout;
@@ -42,7 +43,7 @@ module.exports = async (options) => {
       );
 
       if (options.save) {
-        let favs = fs.readJsonSync(path.join(process.cwd(), "favs.json"), {
+        let favs = fs.readJsonSync(path.join(os.homedir(), ".favs.json"), {
           throws: false,
         });
 
@@ -53,7 +54,7 @@ module.exports = async (options) => {
         favs.push(
           `sudo -S cyberghostvpn --traffic --country-code ${options.country} --city ${options.city} --connect`
         );
-        fs.writeJsonSync(path.join(process.cwd(), "favs.json"), favs);
+        fs.writeJsonSync(path.join(os.homedir(), ".favs.json"), favs);
       }
 
       return stdout;
@@ -67,7 +68,7 @@ module.exports = async (options) => {
       );
 
       if (options.save) {
-        let favs = fs.readJsonSync(path.join(process.cwd(), "favs.json"), {
+        let favs = fs.readJsonSync(path.join(os.homedir(), ".favs.json"), {
           throws: false,
         });
 
@@ -78,7 +79,7 @@ module.exports = async (options) => {
         favs.push(
           `sudo -S cyberghostvpn --traffic --country-code ${options.country} --city ${options.city} --server ${options.server} --connect`
         );
-        fs.writeJsonSync(path.join(process.cwd(), "favs.json"), favs);
+        fs.writeJsonSync(path.join(os.homedir(), ".favs.json"), favs);
       }
 
       return stdout;

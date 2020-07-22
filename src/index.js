@@ -10,8 +10,9 @@ const fs = require("fs-extra");
 const path = require("path");
 const listFavsHandler = require("./listFavsHandler");
 const connectFavs = require("./connectFavs");
+const os = require("os");
 
-fs.ensureFileSync(path.join(process.cwd(), "favs.json"));
+fs.ensureFileSync(path.join(os.homedir(), ".favs.json"));
 
 app
   .version("0.0.1")

@@ -19,6 +19,9 @@ npm i -g ghostie-cli
 ### List Mode
 
 ```bash
+# List country codes
+ghostie-cli -l
+
 # List cities for a country
 ghostie-cli -l -c US
 

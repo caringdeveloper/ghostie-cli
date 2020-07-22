@@ -24,29 +24,49 @@ app
   .option("-d --disconnect", "Disconnect from Cyberghost")
   .option("-f --favorites [index]", "Show favorites")
   .option("-x --save", "Save connection as favorite")
+  .option("--status", "Show connection status")
   .action(async (options) => {
+    if (options.status) {
+      const { stdout } = await exec(`cyberghostvpn --status`);
+      console.log(stdout);
+      return;
+    }
+
     if (options.list && !options.go) {
       // We are in list mode
       console.log(await listModeHandler(options));
-    } else if (options.go && !options.list && !options.favorites) {
+      return;
+    }
+
+    if (options.go && !options.list && !options.favorites) {
       // We are in connect mode
       console.log(await connectModeHandler(options));
-    } else if (options.disconnect && !options.go && !options.list) {
+      return;
+    }
+
+    if (options.disconnect && !options.go && !options.list) {
       const password = prompt.hide("Enter your password: ");
       const { stdout } = await exec(
         `echo ${password} | sudo -S cyberghostvpn --stop`
       );
       console.log(stdout);
-    } else if (options.favorites && !options.go && !options.list) {
+      return;
+    }
+
+    if (options.favorites && !options.go && !options.list) {
       // Show Favorites
       await listFavsHandler();
-    } else if (options.favorites && options.go && !options.list) {
+      return;
+    }
+
+    if (options.favorites && options.go && !options.list) {
       // Show Favorites
       console.log(await connectFavs(options.favorites));
-    } else {
-      // unkwown mode
-      console.log("ERROR! You can either list or connect but not both");
+      return;
     }
+
+    // unkwown mode
+    console.log("ERROR! You can either list or connect but not both");
   });
 
 app.parse(process.argv);

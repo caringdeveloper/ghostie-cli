@@ -6,6 +6,11 @@ module.exports = async (options) => {
   const mask = generateMask(options);
 
   switch (mask) {
+    case "000": {
+      const { stdout } = await exec(`cyberghostvpn --traffic --country-code`);
+      return stdout;
+    }
+
     case "100": {
       const { stdout } = await exec(
         `cyberghostvpn --traffic --country-code ${options.country}`

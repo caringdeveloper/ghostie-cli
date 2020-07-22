@@ -1,10 +1,14 @@
 {
   "name": "ghostie-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./src/index.js",
   "bin": {
     "ghostie-cli": "./src/index.js"
+  },
+  "scripts": {
+    "prepublish": "npm run lint",
+    "lint": "eslint src/**"
   },
   "keywords": [
     "Cyberghost",

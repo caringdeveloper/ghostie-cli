@@ -2,6 +2,10 @@
 
 > A small CLI tool to handle Cyberghost VPN on Linux.
 
+## Disclaimer
+
+This is not a product of Cyberghost neither I am an employee of Cyberghost. Just a huge fan who loves their VPN service :heart:
+
 ## Installing
 
 ```bash

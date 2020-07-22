@@ -3,6 +3,7 @@ const exec = promisify(require("child_process").exec);
 const fs = require("fs-extra");
 const path = require("path");
 const prompt = require("prompt-sync")();
+const os = require("os");
 
 module.exports = async (index) => {
   const favs = await fs.readJson(path.join(os.homedir(), ".favs.json"));

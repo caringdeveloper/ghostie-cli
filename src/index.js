@@ -33,7 +33,7 @@ app
     } else if (options.disconnect && !options.go && !options.list) {
       const password = prompt.hide("Enter your password: ");
       const { stdout } = await exec(
-        `echo ${password} | sudo -S cyberghostvpn --stop && sleep 5 && sudo -S ifconfig eno1 down && sleep 5 && sudo -S ifconfig eno1 up`
+        `echo ${password} | sudo -S cyberghostvpn --stop`
       );
       console.log(stdout);
     } else if (options.favorites && !options.go && !options.list) {
